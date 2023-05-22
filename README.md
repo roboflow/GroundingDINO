@@ -1,23 +1,23 @@
-# :sauropod: Grounding DINO 
+# :sauropod: Grounding DINO
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/grounding-dino-marrying-dino-with-grounded/zero-shot-object-detection-on-mscoco)](https://paperswithcode.com/sota/zero-shot-object-detection-on-mscoco?p=grounding-dino-marrying-dino-with-grounded) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/grounding-dino-marrying-dino-with-grounded/zero-shot-object-detection-on-odinw)](https://paperswithcode.com/sota/zero-shot-object-detection-on-odinw?p=grounding-dino-marrying-dino-with-grounded) \
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/grounding-dino-marrying-dino-with-grounded/object-detection-on-coco-minival)](https://paperswithcode.com/sota/object-detection-on-coco-minival?p=grounding-dino-marrying-dino-with-grounded) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/grounding-dino-marrying-dino-with-grounded/object-detection-on-coco)](https://paperswithcode.com/sota/object-detection-on-coco?p=grounding-dino-marrying-dino-with-grounded)
-
+[![image](https://img.shields.io/pypi/v/groundingdino-py.svg)](https://pypi.python.org/pypi/groundingdino-py)
 
 Official PyTorch implementation of ["Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection"](https://arxiv.org/abs/2303.05499): the SoTA open-set object detector.
 
 ## :sun_with_face: Helpful Tutorial
 
 - :grapes: [[Read our arXiv Paper](https://arxiv.org/abs/2303.05499)]
-- :apple:  [[Watch our simple introduction video on YouTube](https://youtu.be/wxWDt5UiwY8)]
-- :rose:   &nbsp;[[Try the Colab Demo](https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/zero-shot-object-detection-with-grounding-dino.ipynb)]
+- :apple: [[Watch our simple introduction video on YouTube](https://youtu.be/wxWDt5UiwY8)]
+- :rose: &nbsp;[[Try the Colab Demo](https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/zero-shot-object-detection-with-grounding-dino.ipynb)]
 - :sunflower: [[Try our Official Huggingface Demo](https://huggingface.co/spaces/ShilongLiu/Grounding_DINO_demo)]
 - :maple_leaf: [[Watch the Step by Step Tutorial about GroundingDINO by Robotflow AI](https://youtu.be/cMa77r3YrDk)]
 - :mushroom: [[GroundingDINO: Automated Dataset Annotation and Evaluation by Robotflow AI](https://youtu.be/C4NqaRBz_Kw)]
 - :hibiscus: [[Accelerate Image Annotation with SAM and GroundingDINO by Robotflow AI](https://youtu.be/oEQYStnF2l8)]
 
-<!-- Grounding DINO Methods | 
-[![arXiv](https://img.shields.io/badge/arXiv-2303.05499-b31b1b.svg)](https://arxiv.org/abs/2303.05499) 
+<!-- Grounding DINO Methods |
+[![arXiv](https://img.shields.io/badge/arXiv-2303.05499-b31b1b.svg)](https://arxiv.org/abs/2303.05499)
 [![YouTube](https://badges.aleen42.com/src/youtube.svg)](https://youtu.be/wxWDt5UiwY8) -->
 
 <!-- Grounding DINO Demos |
@@ -41,10 +41,7 @@ Official PyTorch implementation of ["Grounding DINO: Marrying DINO with Grounded
 
 <!-- Extensions | [Grounding DINO with Segment Anything](https://github.com/IDEA-Research/Grounded-Segment-Anything); [Grounding DINO with Stable Diffusion](demo/image_editing_with_groundingdino_stablediffusion.ipynb); [Grounding DINO with GLIGEN](demo/image_editing_with_groundingdino_gligen.ipynb)  -->
 
-
-
 <!-- Official PyTorch implementation of [Grounding DINO](https://arxiv.org/abs/2303.05499), a stronger open-set object detector. Code is available now! -->
-
 
 ## :bulb: Highlight
 
@@ -52,12 +49,10 @@ Official PyTorch implementation of ["Grounding DINO: Marrying DINO with Grounded
 - **High Performancce.** COCO zero-shot **52.5 AP** (training without COCO data!). COCO fine-tune **63.0 AP**.
 - **Flexible.** Collaboration with Stable Diffusion for Image Editting.
 
-
-
-
 ## :fire: News
+
 - **`2023/04/15`**: Refer to [CV in the Wild Readings](https://github.com/Computer-Vision-in-the-Wild/CVinW_Readings) for those who are interested in open-set recognition!
-- **`2023/04/08`**: We release [demos](demo/image_editing_with_groundingdino_gligen.ipynb) to combine [Grounding DINO](https://arxiv.org/abs/2303.05499) with [GLIGEN](https://github.com/gligen/GLIGEN)  for more controllable image editings.
+- **`2023/04/08`**: We release [demos](demo/image_editing_with_groundingdino_gligen.ipynb) to combine [Grounding DINO](https://arxiv.org/abs/2303.05499) with [GLIGEN](https://github.com/gligen/GLIGEN) for more controllable image editings.
 - **`2023/04/08`**: We release [demos](demo/image_editing_with_groundingdino_stablediffusion.ipynb) to combine [Grounding DINO](https://arxiv.org/abs/2303.05499) with [Stable Diffusion](https://github.com/Stability-AI/StableDiffusion) for image editings.
 - **`2023/04/06`**: We build a new demo by marrying GroundingDINO with [Segment-Anything](https://github.com/facebookresearch/segment-anything) named **[Grounded-Segment-Anything](https://github.com/IDEA-Research/Grounded-Segment-Anything)** aims to support segmentation in GroundingDINO.
 - **`2023/03/28`**: A YouTube [video](https://youtu.be/cMa77r3YrDk) about Grounding DINO and basic object detection prompt engineering. [[SkalskiP](https://github.com/SkalskiP)]
@@ -77,24 +72,25 @@ Marrying <a href="https://github.com/IDEA-Research/GroundingDINO">Grounding DINO
 </details>
 
 ## :star: Explanations/Tips for Grounding DINO Inputs and Outputs
+
 - Grounding DINO accepts an `(image, text)` pair as inputs.
 - It outputs `900` (by default) object boxes. Each box has similarity scores across all input words. (as shown in Figures below.)
 - We defaultly choose the boxes whose highest similarities are higher than a `box_threshold`.
 - We extract the words whose similarities are higher than the `text_threshold` as predicted labels.
-- If you want to obtain objects of specific phrases, like the `dogs` in the sentence `two dogs with a stick.`, you can select the boxes with highest text similarities with `dogs` as final outputs. 
+- If you want to obtain objects of specific phrases, like the `dogs` in the sentence `two dogs with a stick.`, you can select the boxes with highest text similarities with `dogs` as final outputs.
 - Note that each word can be split to **more than one** tokens with different tokenlizers. The number of words in a sentence may not equal to the number of text tokens.
 - We suggest separating different category names with `.` for Grounding DINO.
-![model_explain1](.asset/model_explan1.PNG)
-![model_explain2](.asset/model_explan2.PNG)
+  ![model_explain1](.asset/model_explan1.PNG)
+  ![model_explain2](.asset/model_explan2.PNG)
 
-## :label: TODO 
+## :label: TODO
 
 - [x] Release inference code and demo.
 - [x] Release checkpoints.
 - [x] Grounding DINO with Stable Diffusion and GLIGEN demos.
 - [ ] Release training codes.
 
-## :hammer_and_wrench: Install 
+## :hammer_and_wrench: Install
 
 **Note:**
 
@@ -119,6 +115,7 @@ Install the required dependencies in the current directory.
 ```bash
 pip3 install -q -e .
 ```
+
 Create a new directory called "weights" to store the model weights.
 
 ```bash
@@ -138,12 +135,15 @@ wget -q https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-
 ```
 
 ## :arrow_forward: Demo
+
 Check your GPU ID (only if you're using a GPU)
 
 ```bash
 nvidia-smi
 ```
+
 Replace `{GPU ID}`, `image_you_want_to_detect.jpg`, and `"dir you want to save the output"` with appropriate values in the following command
+
 ```bash
 CUDA_VISIBLE_DEVICES={GPU ID} python demo/inference_on_a_image.py \
 -c /GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py \
@@ -153,6 +153,7 @@ CUDA_VISIBLE_DEVICES={GPU ID} python demo/inference_on_a_image.py \
 -t "chair"
  [--cpu-only] # open it for cpu mode
 ```
+
 See the `demo/inference_on_a_image.py` for more details.
 
 **Running with Python:**
@@ -180,15 +181,15 @@ boxes, logits, phrases = predict(
 annotated_frame = annotate(image_source=image_source, boxes=boxes, logits=logits, phrases=phrases)
 cv2.imwrite("annotated_image.jpg", annotated_frame)
 ```
+
 **Web UI**
 
 We also provide a demo code to integrate Grounding DINO with Gradio Web UI. See the file `demo/gradio_app.py` for more details.
 
 **Notebooks**
 
-- We release [demos](demo/image_editing_with_groundingdino_gligen.ipynb) to combine [Grounding DINO](https://arxiv.org/abs/2303.05499) with [GLIGEN](https://github.com/gligen/GLIGEN)  for more controllable image editings.
+- We release [demos](demo/image_editing_with_groundingdino_gligen.ipynb) to combine [Grounding DINO](https://arxiv.org/abs/2303.05499) with [GLIGEN](https://github.com/gligen/GLIGEN) for more controllable image editings.
 - We release [demos](demo/image_editing_with_groundingdino_stablediffusion.ipynb) to combine [Grounding DINO](https://arxiv.org/abs/2303.05499) with [Stable Diffusion](https://github.com/Stability-AI/StableDiffusion) for image editings.
-
 
 ## :luggage: Checkpoints
 
@@ -251,7 +252,6 @@ See our example <a href="https://github.com/IDEA-Research/GroundingDINO/blob/mai
 <img src=".asset/GD_SD.png" alt="GD_SD" width="100%">
 </details>
 
-
 <details open>
 <summary><font size="4">
 Marrying Grounding DINO with <a href="https://github.com/gligen/GLIGEN">GLIGEN</a> for more Detailed Image Editing.
@@ -266,7 +266,6 @@ Includes: a text backbone, an image backbone, a feature enhancer, a language-gui
 
 ![arch](.asset/arch.png)
 
-
 ## :hearts: Acknowledgement
 
 Our model is related to [DINO](https://github.com/IDEA-Research/DINO) and [GLIP](https://github.com/microsoft/GLIP). Thanks for their great work!
@@ -275,10 +274,9 @@ We also thank great previous work including DETR, Deformable DETR, SMCA, Conditi
 
 Thanks [Stable Diffusion](https://github.com/Stability-AI/StableDiffusion) and [GLIGEN](https://github.com/gligen/GLIGEN) for their awesome models.
 
-
 ## :black_nib: Citation
 
-If you find our work helpful for your research, please consider citing the following BibTeX entry.   
+If you find our work helpful for your research, please consider citing the following BibTeX entry.
 
 ```bibtex
 @article{liu2023grounding,
@@ -288,7 +286,3 @@ If you find our work helpful for your research, please consider citing the follo
   year={2023}
 }
 ```
-
-
-
-

@@ -33,6 +33,8 @@ version = "0.1.0"
 package_name = "groundingdino"
 cwd = os.path.dirname(os.path.abspath(__file__))
 
+with open('README.md') as readme_file:
+    readme = readme_file.read()
 
 sha = "Unknown"
 try:
@@ -190,7 +192,7 @@ if __name__ == "__main__":
     write_version_file()
 
     setup(
-        name="groundingdino",
+        name="groundingdino-py",
         version="0.1.0",
         author="International Digital Economy Academy, Shilong Liu",
         url="https://github.com/IDEA-Research/GroundingDINO",
@@ -205,4 +207,6 @@ if __name__ == "__main__":
         ),
         ext_modules=get_extensions(),
         cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
+        long_description=readme,
+        long_description_content_type='text/markdown',
     )
