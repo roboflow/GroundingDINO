@@ -193,7 +193,7 @@ if __name__ == "__main__":
 
     setup(
         name="groundingdino-py",
-        version='0.1.1',
+        version='0.1.2',
         author="International Digital Economy Academy, Shilong Liu",
         url="https://github.com/IDEA-Research/GroundingDINO",
         description="open-set object detector",
