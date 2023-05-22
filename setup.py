@@ -195,7 +195,7 @@ if __name__ == "__main__":
         name="groundingdino-py",
         version='0.1.2',
         author="International Digital Economy Academy, Shilong Liu",
-        url="https://github.com/IDEA-Research/GroundingDINO",
+        url="https://github.com/giswqs/GroundingDINO",
         description="open-set object detector",
         license=license,
         install_requires=parse_requirements("requirements.txt"),
