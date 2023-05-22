@@ -29,7 +29,12 @@ from setuptools import find_packages, setup
 from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
 
 # groundingdino version info
-version = "0.1.0"
+
+with open('groundingdino/__init__.py') as f:
+    lines = f.readlines()
+
+version= [l for l in lines if l.startswith('__version__')][0].split('=')[1].strip().replace("'", '')
+
 package_name = "groundingdino"
 cwd = os.path.dirname(os.path.abspath(__file__))
 
@@ -44,7 +49,7 @@ except Exception:
 
 
 def write_version_file():
-    version_path = os.path.join(cwd, "groundingdino", "version.py")
+    version_path = os.path.join(cwd, "groundingdino", "__init__.py")
     with open(version_path, "w") as f:
         f.write(f"__version__ = '{version}'\n")
         # f.write(f"git_version = {repr(sha)}\n")
