@@ -24,12 +24,11 @@ import glob
 import os
 import subprocess
 
-import torch
+# import torch
 from setuptools import find_packages, setup
-from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
+# from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
 
 # groundingdino version info
-
 with open('groundingdino/__init__.py') as f:
     lines = f.readlines()
 
@@ -54,7 +53,7 @@ def write_version_file():
         f.write(f"__version__ = '{version}'\n")
         # f.write(f"git_version = {repr(sha)}\n")
 
-
+'''
 requirements = ["torch", "torchvision"]
 
 torch_ver = [int(x) for x in torch.__version__.split(".")[:2]]
@@ -108,6 +107,7 @@ def get_extensions():
     ]
 
     return ext_modules
+'''
 
 
 def parse_requirements(fname="requirements.txt", with_version=True):
@@ -185,6 +185,7 @@ def parse_requirements(fname="requirements.txt", with_version=True):
                 yield item
 
     packages = list(gen_packages_items())
+    print(f'packages needed are {packages}')
     return packages
 
 
@@ -210,8 +211,8 @@ if __name__ == "__main__":
                 "tests",
             )
         ),
-        ext_modules=get_extensions(),
-        cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
+        # ext_modules=get_extensions(),
+        # cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
         long_description=readme,
         long_description_content_type='text/markdown',
     )
