@@ -198,10 +198,10 @@ if __name__ == "__main__":
     write_version_file()
 
     setup(
-        name="groundingdino-py",
-        version='0.4.0',
+        name="rf_groundingdino",
+        version='0.1.2',
         author="International Digital Economy Academy, Shilong Liu",
-        url="https://github.com/giswqs/GroundingDINO",
+        url="https://github.com/roboflow/GroundingDINO",
         description="open-set object detector",
         license=license,
         install_requires=parse_requirements("requirements.txt"),
