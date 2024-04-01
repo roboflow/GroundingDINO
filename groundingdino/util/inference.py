@@ -6,6 +6,7 @@ import supervision as sv
 import torch
 from PIL import Image
 from torchvision.ops import box_convert
+import bisect
 
 import groundingdino.datasets.transforms as T
 from groundingdino.models import build_model
@@ -55,7 +56,8 @@ def predict(
         caption: str,
         box_threshold: float,
         text_threshold: float,
-        device: str = "cuda"
+        device: str = "cuda",
+        remove_combined: bool = False
 ) -> Tuple[torch.Tensor, torch.Tensor, List[str]]:
     caption = preprocess_caption(caption=caption)
 
@@ -74,17 +76,40 @@ def predict(
 
     tokenizer = model.tokenizer
     tokenized = tokenizer(caption)
-
-    phrases = [
-        get_phrases_from_posmap(logit > text_threshold, tokenized, tokenizer).replace('.', '')
-        for logit
-        in logits
-    ]
+    
+    if remove_combined:
+        sep_idx = [i for i in range(len(tokenized['input_ids'])) if tokenized['input_ids'][i] in [101, 102, 1012]]
+        
+        phrases = []
+        for logit in logits:
+            max_idx = logit.argmax()
+            insert_idx = bisect.bisect_left(sep_idx, max_idx)
+            right_idx = sep_idx[insert_idx]
+            left_idx = sep_idx[insert_idx - 1]
+            phrases.append(get_phrases_from_posmap(logit > text_threshold, tokenized, tokenizer, left_idx, right_idx).replace('.', ''))
+    else:
+        phrases = [
+            get_phrases_from_posmap(logit > text_threshold, tokenized, tokenizer).replace('.', '')
+            for logit
+            in logits
+        ]
 
     return boxes, logits.max(dim=1)[0], phrases
 
 
 def annotate(image_source: np.ndarray, boxes: torch.Tensor, logits: torch.Tensor, phrases: List[str]) -> np.ndarray:
+    """    
+    This function annotates an image with bounding boxes and labels.
+
+    Parameters:
+    image_source (np.ndarray): The source image to be annotated.
+    boxes (torch.Tensor): A tensor containing bounding box coordinates.
+    logits (torch.Tensor): A tensor containing confidence scores for each bounding box.
+    phrases (List[str]): A list of labels for each bounding box.
+
+    Returns:
+    np.ndarray: The annotated image.
+    """
     h, w, _ = image_source.shape
     boxes = boxes * torch.Tensor([w, h, w, h])
     xyxy = box_convert(boxes=boxes, in_fmt="cxcywh", out_fmt="xyxy").numpy()
@@ -237,8 +262,10 @@ class Model:
     def phrases2classes(phrases: List[str], classes: List[str]) -> np.ndarray:
         class_ids = []
         for phrase in phrases:
-            try:
-                class_ids.append(classes.index(phrase))
-            except ValueError:
+            for class_ in classes:
+                if class_ in phrase:
+                    class_ids.append(classes.index(class_))
+                    break
+            else:
                 class_ids.append(None)
         return np.array(class_ids)
