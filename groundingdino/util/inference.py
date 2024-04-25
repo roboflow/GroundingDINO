@@ -76,10 +76,10 @@ def predict(
 
     tokenizer = model.tokenizer
     tokenized = tokenizer(caption)
-    
+
     if remove_combined:
         sep_idx = [i for i in range(len(tokenized['input_ids'])) if tokenized['input_ids'][i] in [101, 102, 1012]]
-        
+
         phrases = []
         for logit in logits:
             max_idx = logit.argmax()
@@ -98,7 +98,7 @@ def predict(
 
 
 def annotate(image_source: np.ndarray, boxes: torch.Tensor, logits: torch.Tensor, phrases: List[str]) -> np.ndarray:
-    """    
+    """
     This function annotates an image with bounding boxes and labels.
 
     Parameters:
@@ -178,8 +178,9 @@ class Model:
             image=processed_image,
             caption=caption,
             box_threshold=box_threshold,
-            text_threshold=text_threshold, 
-            device=self.device)
+            text_threshold=text_threshold,
+            device=self.device,
+            remove_combined=True)
         source_h, source_w, _ = image.shape
         detections = Model.post_process_result(
             source_h=source_h,
@@ -222,7 +223,8 @@ class Model:
             caption=caption,
             box_threshold=box_threshold,
             text_threshold=text_threshold,
-            device=self.device)
+            device=self.device,
+            remove_combined=True)
         source_h, source_w, _ = image.shape
         detections = Model.post_process_result(
             source_h=source_h,
