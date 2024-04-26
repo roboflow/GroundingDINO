@@ -24,7 +24,19 @@ import glob
 import os
 import subprocess
 
-# import torch
+import subprocess
+import sys
+
+def install_torch():
+    try:
+        import torch
+    except ImportError:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "torch"])
+
+# Call the function to ensure torch is installed
+install_torch()
+
+import torch
 from setuptools import find_packages, setup
 # from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
 
@@ -199,7 +211,7 @@ if __name__ == "__main__":
 
     setup(
         name="rf_groundingdino",
-        version='0.1.2',
+        version='0.2.0',
         author="International Digital Economy Academy, Shilong Liu",
         url="https://github.com/roboflow/GroundingDINO",
         description="open-set object detector",
