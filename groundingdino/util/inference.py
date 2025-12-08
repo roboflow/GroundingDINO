@@ -26,8 +26,11 @@ def preprocess_caption(caption: str) -> str:
     return result + "."
 
 
-def load_model(model_config_path: str, model_checkpoint_path: str, device: str = "cuda"):
+def load_model(model_config_path: str, model_checkpoint_path: str, device: str = "cuda", **kwargs):
     args = SLConfig.fromfile(model_config_path)
+    if kwargs:
+        for name, value in kwargs.items():
+            args[name] = value
     args.device = device
     model = build_model(args)
     checkpoint = torch.load(model_checkpoint_path, map_location="cpu")
