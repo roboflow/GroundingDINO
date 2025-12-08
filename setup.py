@@ -211,7 +211,7 @@ if __name__ == "__main__":
 
     setup(
         name="rf_groundingdino",
-        version='0.3.0rc1',
+        version='0.3.0',
         author="International Digital Economy Academy, Shilong Liu",
         url="https://github.com/roboflow/GroundingDINO",
         description="open-set object detector",
